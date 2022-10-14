@@ -61,14 +61,4 @@ contract Contract is ERC721Drop {
         approvedMarketplaces[market] = approved;
         emit MarketplaceApproved(market, approved);
     }
-
-    function approve(address to, uint256 tokenId) public override {
-        require(approvedMarketplaces[to], "Marketplace not approved by contract owner");
-        super.approve(to, tokenId);
-    }
-
-    function setApprovalForAll(address operator, bool approved) public override {
-        require(approvedMarketplaces[operator], "Marketplace not approved by contract owner");
-        super.setApprovalForAll(operator, approved);
-    }
 }
